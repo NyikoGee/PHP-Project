@@ -1,0 +1,15 @@
+	<?php
+///////////////////////task 1a////////////////////////
+	// addinging the values 
+define('MODULECODE', 2022);  // define a constant
+$moduleCode = "ICT2613";
+$registrationYear = 2022;
+$numberOfAssignments = 3;
+
+
+//////////////////////task 1b///////////////////////// 
+ // calling the values added to the server
+// also calculates some calling values and displays answers
+echo "I am registered for: <b> $moduleCode </b> in <b> $registrationYear </b>. <b>$moduleCode</b> has <b>$numberOfAssignments</b> assignments.";
+
+?>

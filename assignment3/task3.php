@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="UTF-8">
+</head>
+<body>
+<?php include('menu.inc'); echo "<br>"; ?>
+<!--Creating the forms to input data !-->
+
+<form action="task3.php" method="POST">
+	<h2>Hackathon Registration</h2>
+
+		<h3>Basic Information</h3>
+
+	<p><label for="name">Name</label><input type="text" name="name" id="name"></p>
+	<p><label for="email">Email</label><input type="email" name="email"  id="email"></p>
+
+	<h3>Roles</h3>
+
+	<p><input type="checkbox" name="role" value="Project Leader" id="lead">
+	<label for="lead">Project Leader</label>
+	</p>
+	<p><input type="checkbox" name="role" value="Programmer" id="prog">
+	<label for="prog">Programmer</label>
+	</p>
+	<p><input type="checkbox" name="role" value="Tester" id="test">
+	<label for="test">Tester</label>
+	</p>
+
+	<h3>Dietary Requirements</h3>
+	<p>
+<select name="diet">
+		<option value="">Select a dietary requirement</option>
+		<option value="none">None</option>
+		<option value="vegetarian">Vegetarian</option>
+		<option value="banting">Banting</option>
+</select>
+	</p>
+
+	<p><input type="submit" value="Submit Registration" name="submit_reg"></p>
+
+</form>
+	
+<?php
+
+///////////////////////task 3a////////////////////////
+if(isset($_POST["submit_reg"])){
+	//getting the check box values
+	$user_name = $_POST["name"];
+	$user_email = $_POST["email"];
+	$user_diet = $_POST["diet"];
+
+	if(empty($user_name)){
+		echo "<b style='color:red;'>Please fill in your name</b>";
+	}
+	else if(empty($user_email)){
+		echo "<b style='color:red;'>Please fill in your email</b>";
+	}
+	else if(!isset($_POST['role'])){
+		echo "<b style='color:red;'>Please select at least one role</b>";
+}
+else if(empty($user_diet)){
+	echo "<b style='color:red;'>Please select at least one diatary requirement or none</b>";
+}
+else{
+
+    $roles = "";
+    $user_roles =$_POST['role'];
+
+	foreach($user_roles as $key => $value){
+		$roles .= $value . "<br>";
+	}
+
+	echo "
+	Name: $user_name <br>
+	Email: $user_email <br>
+	Roles: <br>
+	$user_roles <br>
+	Dietary Requirements: $user_diet <br>";
+	}
+}
+
+?>
+
+<br><br>
+
+<iframe src="task3.txt" height="400" scrolling="yes" width="1200px">
+	<p>Your browser does not support iframes.</p>
+</iframe>
+</body>
+</html>

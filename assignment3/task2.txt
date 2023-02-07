@@ -1,0 +1,34 @@
+<?php
+///////////////////////task 1a////////////////////////
+//The form uses the get method, and this is where the information entered, goes
+if(isset($_GET["submit_product"])){
+	if(isset($_GET['product'])){
+		$products = $_GET['product'];
+		foreach($product as $key => $value){
+			$discountedBasePrice = value * (1- 0.1);
+			$vat = $discountedBasePrice * (1- 0.15);
+			$finalPrice = $discountedBasePrice + $vat;
+
+			if($key==0){
+				$selectedProduct = "Coke";
+			}
+			else{
+				$selectedProduct = "Rice";
+			}
+//////////////////////task 1b///////////////////////// 
+	//Display information
+	echo "Product Selected: $selectedProduct <br>";
+	echo "Base Price: R$value <br>";
+	echo "Discounted Percentage: 10% <br>";
+	echo "Discounted Price: R$discountedBasePrice <br>";	  
+	echo "Vat Charged: R$vat <br>";	  
+	echo "Final Price: R$finalPrice <br>";
+	
+	}
+}
+else {
+	echo "<p>No Product Selected</p>";
+}
+	}
+
+?>
